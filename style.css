@@ -1,0 +1,17 @@
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 10px;
+}
+
+body {
+  background: rgb(160, 160, 231);
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+canvas {
+  border: 2px solid white;
+  background: #111;
+}
