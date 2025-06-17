@@ -1,17 +1,23 @@
-.title{
+.title {
     font-size: 24px;
     font-weight: bold;
-    color: red;
+    color: white;
     margin-bottom: 10px;
 }
 
 body {
-  background: rgb(160, 160, 231);
-  color: white;
-  text-align: center;
-  font-family: sans-serif;
+    background-image: url("gravel.png");
+    background-repeat: repeat;
+    background-color: green;
+    background-size: auto;
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
 }
+
 canvas {
-  border: 2px solid white;
-  background: #111;
+    border-width: 20px;
+    border-style: solid;
+    border-image: url("wood-pattern.png") 30 round;
+    background: #111;
 }

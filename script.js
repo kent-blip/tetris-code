@@ -43,9 +43,17 @@ const PIECE_IDS = {
 
 const COLORS = [
   null,
-  "silver", "yellow", "orange", "blue",
-  "cyan", "green", "red", "magenta",
-  "brown", "lime", "white"
+   "#B0BEC5",  // silver
+  "#FFD600",  // bright yellow
+  "#FF6D00",  // vivid orange
+  "#2979FF",  // bright blue
+  "#00E5FF",  // cyan
+  "#00C853",  // green
+  "#FF1744",  // red
+  "#D500F9",  // magenta
+  "#6D4C41",  // brown
+  "#76FF03",  // lime
+  "#F5F5F5",  // soft white
 ];
 
 const arena = createMatrix(COLS, ROWS);
@@ -93,11 +101,28 @@ function merge(arena, player) {
 function drawMatrix(matrix, offset, color = null, alpha = 1) {
   ctx.save();
   ctx.globalAlpha = alpha;
+
   matrix.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
-        ctx.fillStyle = color || COLORS[value];
-        ctx.fillRect(x + offset.x, y + offset.y, 1, 1);
+        const px = x + offset.x;
+        const py = y + offset.y;
+
+        const gradient = ctx.createLinearGradient(px, py, px + 1, py + 1);
+        gradient.addColorStop(0, "white");
+        gradient.addColorStop(1, color || COLORS[value]);
+
+        ctx.shadowColor = "black";
+        ctx.shadowBlur =5;
+        ctx.shadowOffsetX = 0.1;
+        ctx.shadowOffsetY = 0.1;
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(px, py, 1, 1);
+
+        ctx.shadowBlur = 0;
+        ctx.shadowOffsetX = 0;
+        ctx.shadowOffsetY = 0;
       }
     });
   });
